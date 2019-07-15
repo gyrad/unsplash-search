@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Searchbar(props) {
-  const [term, setTerm] = useState('');
+  const [term, setTerm] = useState(props.defaultValue);
 
   const onSubmit = e => {
     e.preventDefault();

@@ -4,6 +4,7 @@ import TinyGallery from 'tinygallery/dist/tinygallery.min.js';
 
 function App() {
   const [images, setImages] = useState([]);
+  const defaultSearch = 'Tibet';
 
   useEffect(() => {
     const resultsGallery = new TinyGallery('results-gallery');
@@ -12,7 +13,7 @@ function App() {
   });
 
   useEffect(() => {
-    handleSearch('Tibet');
+    handleSearch(defaultSearch);
   }, []);
 
   // Search
@@ -51,7 +52,7 @@ function App() {
     <div className="container">
       <div className="pb-4 mt-4">
         <h1 className="display-3">Unsplash Search</h1>
-        <Searchbar onSubmit={handleSearch} />
+        <Searchbar onSubmit={handleSearch} defaultValue={defaultSearch} />
       </div>
       <div className="tinygallery" id="results-gallery">
         {renderImageResults}
